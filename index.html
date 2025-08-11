@@ -1,0 +1,971 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bitirme Projesi</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="5z2Bb4sF_400x400.png">
+
+    <style>
+        /* Import Google Fonts for pixel-like appearance */
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Orbitron', monospace;
+            background: linear-gradient(135deg, #0f0f23 0%, #1a1a3e 100%);
+            color: #43d86b;
+            min-height: 100vh;
+            background-attachment: fixed;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Navigation Styles */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+            border-bottom: 2px solid #43d86b;
+            margin-bottom: 30px;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 10px;
+            backdrop-filter: blur(10px);
+        }
+
+        .nav-brand h1 {
+            font-size: 2rem;
+            font-weight: 900;
+            text-shadow: 0 0 10px #43d86b;
+            animation: glow 2s infinite alternate;
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 10px;
+        }
+
+        .nav-btn {
+            background: transparent;
+            border: 2px solid #43d86b;
+            color: #43d86b;
+            padding: 10px 20px;
+            font-family: 'Orbitron', monospace;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .nav-btn:hover,
+        .nav-btn.active {
+            background: #43d86b;
+            color: #0f0f23;
+            box-shadow: 0 0 20px #43d86b;
+            transform: translateY(-2px);
+        }
+
+        .nav-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.5s;
+        }
+
+        .nav-btn:hover::before {
+            left: 100%;
+        }
+
+        /* Content Sections */
+        .content-section {
+            display: none;
+            animation: fadeIn 0.5s ease-in;
+        }
+
+        .content-section.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Hero Section */
+        .hero-section {
+            text-align: center;
+            padding: 40px 0;
+        }
+
+        .pixel-text {
+            font-size: 4rem;
+            font-weight: 900;
+            margin-bottom: 10px;
+            text-shadow:
+                0 0 5px #43d86b,
+                0 0 10px #43d86b,
+                0 0 15px #43d86b,
+                0 0 20px #43d86b;
+            animation: pulse 2s infinite;
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            margin-bottom: 40px;
+            color: #a2e8b7;
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.05);
+            }
+        }
+
+        @keyframes glow {
+            from {
+                text-shadow: 0 0 10px #43d86b;
+            }
+
+            to {
+                text-shadow: 0 0 20px #43d86b, 0 0 30px #43d86b;
+            }
+        }
+
+        /* Info Box */
+        .info-box {
+            background: rgba(67, 216, 107, 0.1);
+            border: 2px solid #43d86b;
+            padding: 30px;
+            margin: 30px 0;
+            border-radius: 10px;
+            backdrop-filter: blur(5px);
+        }
+
+        .info-box h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: #43d86b;
+        }
+
+        .info-box p {
+            line-height: 1.6;
+            color: #d2f5e0;
+        }
+
+        /* Features Grid */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .feature-card {
+            background: rgba(0, 0, 0, 0.5);
+            border: 1px solid #43d86b;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(67, 216, 107, 0.3);
+            border-color: #a2e8b7;
+        }
+
+        .feature-card h4 {
+            color: #43d86b;
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+        }
+
+        .feature-card p {
+            color: #d2f5e0;
+            font-size: 0.9rem;
+        }
+
+        /* Game Status */
+        .game-status {
+            margin: 40px 0;
+            text-align: center;
+            padding: 20px;
+            background: rgba(255, 165, 0, 0.1);
+            border: 2px dashed #ffa500;
+            border-radius: 10px;
+        }
+
+        .status-text {
+            color: #ffa500;
+            font-weight: 700;
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+        }
+
+        .release-text {
+            color: #ffcc7f;
+        }
+
+        /* Team Section */
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 40px;
+            color: #43d86b;
+            text-shadow: 0 0 10px #43d86b;
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .team-member {
+            background: rgba(0, 0, 0, 0.6);
+            border: 2px solid #43d86b;
+            padding: 30px;
+            border-radius: 10px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .team-member:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(67, 216, 107, 0.3);
+        }
+
+        .member-avatar {
+            font-size: 4rem;
+            margin-bottom: 15px;
+            filter: grayscale(100%) sepia(100%) hue-rotate(80deg) brightness(1.2);
+        }
+
+        .team-member h3 {
+            color: #43d86b;
+            margin-bottom: 10px;
+            font-size: 1.3rem;
+        }
+
+        .role {
+            color: #a2e8b7;
+            font-weight: 700;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+        }
+
+        .description {
+            color: #d2f5e0;
+            line-height: 1.5;
+        }
+
+        /* Screenshots Section */
+        .screenshots-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .screenshot-placeholder {
+            aspect-ratio: 16/9;
+            border: 2px solid #43d86b;
+            border-radius: 10px;
+            overflow: hidden;
+            position: relative;
+            background: rgba(0, 0, 0, 0.7);
+        }
+
+        .pixel-frame {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background:
+                repeating-linear-gradient(0deg,
+                    transparent,
+                    transparent 2px,
+                    rgba(67, 216, 107, 0.1) 2px,
+                    rgba(67, 216, 107, 0.1) 4px);
+            transition: all 0.3s ease;
+        }
+
+        .pixel-frame:hover {
+            background-color: rgba(67, 216, 107, 0.1);
+            transform: scale(1.02);
+        }
+
+        .pixel-frame p {
+            font-size: 1.5rem;
+            color: #43d86b;
+            margin-bottom: 10px;
+        }
+
+        .preview-text {
+            color: #d2f5e0;
+            font-size: 0.9rem;
+        }
+
+        .coming-soon {
+            text-align: center;
+            color: #ffa500;
+            font-style: italic;
+            margin-top: 30px;
+            font-size: 1.1rem;
+        }
+
+        /* Contact Section */
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-top: 30px;
+        }
+
+        .contact-card {
+            background: rgba(0, 0, 0, 0.6);
+            border: 2px solid #43d86b;
+            padding: 25px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+
+        .contact-card h3 {
+            color: #43d86b;
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+
+        .contact-card p {
+            color: #d2f5e0;
+            margin-bottom: 8px;
+            line-height: 1.5;
+        }
+
+        .contact-card strong {
+            color: #a2e8b7;
+        }
+
+        .feedback-form {
+            background: rgba(0, 0, 0, 0.6);
+            border: 2px solid #43d86b;
+            padding: 25px;
+            border-radius: 10px;
+        }
+
+        .feedback-form h3 {
+            color: #43d86b;
+            margin-bottom: 20px;
+            font-size: 1.3rem;
+        }
+
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            background: rgba(0, 0, 0, 0.7);
+            border: 1px solid #43d86b;
+            color: #43d86b;
+            padding: 12px;
+            border-radius: 5px;
+            font-family: 'Orbitron', monospace;
+            resize: vertical;
+        }
+
+        .contact-form input::placeholder,
+        .contact-form textarea::placeholder {
+            color: #a2e8b7;
+            opacity: 0.7;
+        }
+
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+            outline: none;
+            border-color: #a2e8b7;
+            box-shadow: 0 0 10px rgba(67, 216, 107, 0.3);
+        }
+
+        .submit-btn {
+            background: transparent;
+            border: 2px solid #43d86b;
+            color: #43d86b;
+            padding: 12px 25px;
+            font-family: 'Orbitron', monospace;
+            font-weight: 700;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+        }
+
+        .submit-btn:hover {
+            background: #43d86b;
+            color: #0f0f23;
+            box-shadow: 0 0 20px #43d86b;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 30px 0;
+            margin-top: 90px;
+            border-top: 1px solid #43d86b;
+            color: #a2e8b7;
+        }
+
+        .logo-frame {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 8px 0 16px 0;
+            padding: 16px 0;
+            border-radius: 16px;
+            border: 2px solid #43d86b;
+            background: rgba(15, 15, 35, 0.7);
+            box-shadow: 0 0 24px 0 rgba(67, 216, 107, 0.15);
+            min-height: 70px;
+        }
+
+        .school-logo {
+            max-width: 320px;
+            width: 100%;
+            height: auto;
+            filter: drop-shadow(0 0 8px #43d86b) brightness(1.1);
+        }
+
+        /* Success Message */
+        .success-message {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: #43d86b;
+            color: #0f0f23;
+            padding: 15px 25px;
+            border-radius: 5px;
+            font-family: 'Orbitron', monospace;
+            font-weight: 700;
+            transform: translateX(400px);
+            transition: all 0.3s ease;
+            z-index: 1000;
+            box-shadow: 0 5px 15px rgba(67, 216, 107, 0.3);
+        }
+
+        .success-message.show {
+            transform: translateX(0);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .nav-menu {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .pixel-text {
+                font-size: 2.5rem;
+            }
+
+            .contact-content {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .team-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .screenshots-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 10px;
+            }
+
+            .nav-btn {
+                padding: 8px 15px;
+                font-size: 0.9rem;
+            }
+
+            .pixel-text {
+                font-size: 2rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <!-- Header Navigation -->
+        <nav class="navbar">
+            <div class="nav-brand">
+                <h1>🎮 Bitirme Projesi</h1>
+            </div>
+            <div class="nav-menu">
+                <button class="nav-btn active" data-section="ana-sayfa">ANA SAYFA</button>
+                <button class="nav-btn" data-section="ekip">EKİP</button>
+                <button class="nav-btn" data-section="ekran-goruntuleri">EKRAN GÖRÜNTÜLERİ</button>
+                <button class="nav-btn" data-section="iletisim">İLETİŞİM</button>
+            </div>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Ana Sayfa -->
+            <section id="ana-sayfa" class="content-section active">
+                <div class="hero-section">
+                    <div class="game-logo">
+                        <h2 class="pixel-text">OYUN ADI</h2>
+                        <p class="subtitle">2D İzometrik Pixel Art RPG</p>
+                    </div>
+
+                    <div class="game-description">
+                        <div class="info-box">
+                            <h3>🗡️ Oyun Hakkında</h3>
+                            <p>OYUN ADI, nostaljik pixel art stili ile modern oyun mekaniğini birleştiren sıra tabanlı
+                                bir RPG macerası. İzometrik görünüm açısı ile tasarlanan bu oyunda, text-based hikaye
+                                anlatımı ve sıra tabanlı savaş sistemi ile unutulmaz bir deneyim yaşayacaksınız.</p>
+                        </div>
+
+                        <div class="features-grid">
+                            <div class="feature-card">
+                                <h4>⚔️ Sıra Tabanlı Savaş</h4>
+                                <p>Stratejik düşünce gerektiren savaş sistemi</p>
+                            </div>
+                            <div class="feature-card">
+                                <h4>🏰 İzometrik Dünya</h4>
+                                <p>Detaylı pixel art ile tasarlanmış dünya</p>
+                            </div>
+                            <div class="feature-card">
+                                <h4>📖 Text-Based Hikaye</h4>
+                                <p>Derin hikaye ve karakter gelişimi</p>
+                            </div>
+                            <div class="feature-card">
+                                <h4>🎨 Pixel Art Stili</h4>
+                                <p>Nostaljik ve şık görsel tasarım</p>
+                            </div>
+                        </div>
+
+                        <div class="game-status">
+                            <p class="status-text">🚧 Geliştirme Aşaması: Alpha v0.1</p>
+                            <p class="release-text">📅 Planlanan Çıkış: 2026 Bahar Dönemi</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Ekip Sayfası -->
+            <section id="ekip" class="content-section">
+                <div class="team-section">
+                    <h2 class="section-title">👥 GELİŞTİRİCİ EKİBİ</h2>
+                    <div class="team-grid">
+                        <div class="team-member">
+                            <div class="member-avatar">👨‍💻</div>
+                            <h3>Ali Ege Önal</h3>
+                            <p class="role">Game Developer / Game Designer</p>
+                            <p class="description">Oyun mekaniği tasarımı, ana kod geliştirme ve Pixel art tasarımı</p>
+                        </div>
+                        <div class="team-member">
+                            <div class="member-avatar">👨‍💻</div>
+                            <h3>Alperen Yüksel</h3>
+                            <p class="role">Game Developer / Game Designer</p>
+                            <p class="description">Oyun mekaniği tasarımı, ana kod geliştirme ve Pixel art tasarımı</p>
+                        </div>
+                        <div class="team-member">
+                            <div class="member-avatar">👨‍💻</div>
+                            <h3>Batuhan Bayraklı</h3>
+                            <p class="role">Game Developer / Game Designeraa</p>
+                            <p class="description">Oyun mekaniği tasarımı, ana kod geliştirme ve Pixel art tasarımı</p>
+                        </div>
+                        <div class="team-member">
+                            <div class="member-avatar">👨‍💻</div>
+                            <h3>Geliştirici 4</h3>
+                            <p class="role">System Architect / QA</p>
+                            <p class="description">Sistem mimarisi ve kalite kontrol</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Ekran Görüntüleri Sayfası -->
+            <section id="ekran-goruntuleri" class="content-section">
+                <div class="screenshots-section">
+                    <h2 class="section-title">📸 EKRAN GÖRÜNTÜLERİ</h2>
+                    <div class="screenshots-grid">
+                        <div class="screenshot-placeholder">
+                            <div class="pixel-frame">
+                                <p>🏰 Ana Menü</p>
+                                <img src="Week_32_T.png" alt="Ana Menü"
+                                    style="width:100%; border-radius:8px; box-shadow:0 0 16px #43d86b;">
+                                <div class="preview-text">Oyunun ana menü ekranı</div>
+                            </div>
+                        </div>
+                        <div class="screenshot-placeholder">
+                            <div class="pixel-frame">
+                                <p>⚔️ Savaş Ekranı</p>
+                                <img src="new-menu-art-for-my-game-v0-j7zice1b2b0c1.webp" alt="Ana Menü"
+                                    style="width:100%; border-radius:8px; box-shadow:0 0 16px #43d86b;">
+                                <div class="preview-text">Sıra tabanlı savaş sistemi</div>
+                            </div>
+                        </div>
+                        <div class="screenshot-placeholder">
+                            <div class="pixel-frame">
+                                <p>🗺️ Dünya Haritası</p>
+                                <img src="pokemon-battle-pidgey-and-charmander.avif" alt="Ana Menü"
+                                    style="width:100%; border-radius:8px; box-shadow:0 0 16px #43d86b;">
+                                <div class="preview-text">İzometrik dünya görünümü</div>
+                            </div>
+                        </div>
+                        <div class="screenshot-placeholder">
+                            <div class="pixel-frame">
+                                <p>👤 Karakter Menüsü</p>
+                                <img src="C7ETqq.png" alt="Ana Menü"
+                                    style="width:100%; border-radius:8px; box-shadow:0 0 16px #43d86b;">
+                                <div class="preview-text">Karakter gelişimi ve envanter</div>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="coming-soon">🔜 Gerçek ekran görüntüleri yakında eklenecek!</p>
+                </div>
+            </section>
+
+            <!-- İletişim Sayfası -->
+            <section id="iletisim" class="content-section">
+                <div class="contact-section">
+                    <h2 class="section-title">📧 İLETİŞİM</h2>
+                    <div class="contact-content">
+                        <div class="contact-info">
+                            <div class="contact-card">
+                                <h3>🎓 Proje Bilgileri</h3>
+                                <p><strong>Üniversite:</strong> Başkent Üniversitesi</p>
+                                <p><strong>Bölüm:</strong> Bilgisayar Mühendisliği</p>
+                                <p><strong>Proje Türü:</strong> Bitirme Projesi</p>
+                                <p><strong>Yıl:</strong> 2025 / 2026</p>
+                            </div>
+
+                            <div class="contact-card">
+                                <h3>📞 İletişim Bilgileri</h3>
+                                <p><strong>📧 E-posta:</strong> oyun@example.com</p>
+                                <p><strong>💬 Discord:</strong> oyun#1234</p>
+                                <p><strong>🐙 GitHub:</strong> github.com/oyun</p>
+                                <p><strong>📱 Twitter:</strong> @oyun</p>
+                            </div>
+                        </div>
+
+                        <div class="feedback-form">
+                            <h3>💬 Geri Bildirim Gönderin</h3>
+                            <form class="contact-form" id="contactForm">
+                                <input type="text" placeholder="Adınız" id="name" required>
+                                <input type="email" placeholder="E-posta Adresiniz" id="email" required>
+                                <textarea placeholder="Mesajınız..." rows="5" id="message" required></textarea>
+                                <button type="submit" class="submit-btn">📤 GÖNDER</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="logo-frame">
+                <img src="baskent-universitesi-logo.png" alt="Başkent Üniversitesi Logo" class="school-logo">
+            </div>
+            <p>&copy; 2025 Başkent Üniversitesi Development Team | Bilgisayar Mühendisliği Bitirme Projesi</p>
+        </footer>
+    </div>
+
+    <!-- Success Message -->
+    <div class="success-message" id="successMessage">
+        ✅ Mesajınız başarıyla gönderildi!
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Navigation functionality
+            const navButtons = document.querySelectorAll('.nav-btn');
+            const contentSections = document.querySelectorAll('.content-section');
+
+            navButtons.forEach(button => {
+                button.addEventListener('click', function () {
+                    const targetSection = this.getAttribute('data-section');
+
+                    // Remove active class from all buttons and sections
+                    navButtons.forEach(btn => btn.classList.remove('active'));
+                    contentSections.forEach(section => section.classList.remove('active'));
+
+                    // Add active class to clicked button and target section
+                    this.classList.add('active');
+                    document.getElementById(targetSection).classList.add('active');
+
+                    // Add click effect
+                    this.style.transform = 'scale(0.95)';
+                    setTimeout(() => {
+                        this.style.transform = 'translateY(-2px)';
+                    }, 100);
+                });
+            });
+
+            // Contact form functionality
+            const contactForm = document.getElementById('contactForm');
+            const successMessage = document.getElementById('successMessage');
+
+            contactForm.addEventListener('submit', function (e) {
+                e.preventDefault();
+
+                // Get form values
+                const name = document.getElementById('name').value;
+                const email = document.getElementById('email').value;
+                const message = document.getElementById('message').value;
+
+                // Simple validation
+                if (name.trim() === '' || email.trim() === '' || message.trim() === '') {
+                    alert('❌ Lütfen tüm alanları doldurun!');
+                    return;
+                }
+
+                // Email validation
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if (!emailRegex.test(email)) {
+                    alert('❌ Geçerli bir e-posta adresi girin!');
+                    return;
+                }
+
+                // Show loading effect on button
+                const submitBtn = contactForm.querySelector('.submit-btn');
+                const originalText = submitBtn.textContent;
+                submitBtn.textContent = '⏳ GÖNDERİLİYOR...';
+                submitBtn.disabled = true;
+
+                // Simulate sending (replace with actual form submission)
+                setTimeout(() => {
+                    // Reset form
+                    contactForm.reset();
+
+                    // Show success message
+                    successMessage.classList.add('show');
+
+                    // Reset button
+                    submitBtn.textContent = originalText;
+                    submitBtn.disabled = false;
+
+                    // Hide success message after 3 seconds
+                    setTimeout(() => {
+                        successMessage.classList.remove('show');
+                    }, 3000);
+                }, 1500);
+            });
+
+            // Add hover effects to feature cards
+            const featureCards = document.querySelectorAll('.feature-card');
+            featureCards.forEach(card => {
+                card.addEventListener('mouseenter', function () {
+                    this.style.transform = 'translateY(-5px) scale(1.02)';
+                });
+
+                card.addEventListener('mouseleave', function () {
+                    this.style.transform = 'translateY(0) scale(1)';
+                });
+            });
+
+            // Add click effects to team members
+            const teamMembers = document.querySelectorAll('.team-member');
+            teamMembers.forEach(member => {
+                member.addEventListener('click', function () {
+                    this.style.transform = 'scale(0.98)';
+                    setTimeout(() => {
+                        this.style.transform = 'translateY(-5px) scale(1)';
+                    }, 100);
+                });
+            });
+
+            // Add pixel effect to screenshots
+            const pixelFrames = document.querySelectorAll('.pixel-frame');
+            pixelFrames.forEach(frame => {
+                frame.addEventListener('click', function () {
+                    const placeholder = this.closest('.screenshot-placeholder');
+                    placeholder.style.border = '3px solid #7fff7f';
+                    placeholder.style.boxShadow = '0 0 20px rgba(127, 255, 127, 0.5)';
+
+                    setTimeout(() => {
+                        placeholder.style.border = '2px solid #43d86b';
+                        placeholder.style.boxShadow = 'none';
+                    }, 500);
+                });
+            });
+
+            // Typing effect for the main title
+            const pixelText = document.querySelector('.pixel-text');
+            if (pixelText) {
+                const originalText = pixelText.textContent;
+                pixelText.textContent = '';
+
+                let i = 0;
+                const typeWriter = () => {
+                    if (i < originalText.length) {
+                        pixelText.textContent += originalText.charAt(i);
+                        i++;
+                        setTimeout(typeWriter, 100);
+                    }
+                };
+
+                // Start typing effect after a short delay
+                setTimeout(typeWriter, 500);
+            }
+
+            // Add floating animation to some elements
+            const floatingElements = document.querySelectorAll('.nav-brand h1, .pixel-text');
+            floatingElements.forEach(element => {
+                element.style.animation = 'float 3s ease-in-out infinite';
+            });
+
+            // Add CSS for floating animation
+            const style = document.createElement('style');
+            style.textContent = `
+                @keyframes float {
+                    0%, 100% { transform: translateY(0px); }
+                    50% { transform: translateY(-10px); }
+                }
+            `;
+            document.head.appendChild(style);
+
+            // Easter egg: Konami code
+            let konamiCode = [];
+            const konamiSequence = [
+                'ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown',
+                'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight',
+                'KeyB', 'KeyA'
+            ];
+
+            document.addEventListener('keydown', function (e) {
+                konamiCode.push(e.code);
+
+                if (konamiCode.length > konamiSequence.length) {
+                    konamiCode.shift();
+                }
+
+                if (konamiCode.join(',') === konamiSequence.join(',')) {
+                    // Easter egg activated!
+                    document.body.style.filter = 'hue-rotate(180deg)';
+                    alert('🎮 Easter Egg Bulundu! Retro mode aktifleştirildi!');
+
+                    setTimeout(() => {
+                        document.body.style.filter = 'none';
+                    }, 5000);
+
+                    konamiCode = [];
+                }
+            });
+        });
+
+        // Add matrix rain effect (optional)
+        function createMatrixRain() {
+            const canvas = document.createElement('canvas');
+            const ctx = canvas.getContext('2d');
+
+            canvas.style.position = 'fixed';
+            canvas.style.top = '0';
+            canvas.style.left = '0';
+            canvas.style.width = '100%';
+            canvas.style.height = '100%';
+            canvas.style.zIndex = '-1';
+            canvas.style.opacity = '0.1';
+
+            document.body.appendChild(canvas);
+
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+
+            const columns = canvas.width / 20;
+            const drops = [];
+
+            for (let i = 0; i < columns; i++) {
+                drops[i] = 1;
+            }
+
+            const chars = '01';
+
+            function draw() {
+                ctx.fillStyle = 'rgba(15, 15, 35, 0.05)';
+                ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+                ctx.fillStyle = '#00ff41';
+                ctx.font = '15px monospace';
+
+                for (let i = 0; i < drops.length; i++) {
+                    const text = chars[Math.floor(Math.random() * chars.length)];
+                    ctx.fillText(text, i * 20, drops[i] * 20);
+
+                    if (drops[i] * 20 > canvas.height && Math.random() > 0.975) {
+                        drops[i] = 0;
+                    }
+
+                    drops[i]++;
+                }
+            }
+
+            setInterval(draw, 50);
+        }
+        // Initialize matrix rain effect
+        createMatrixRain();
+    </script>
+</body>
+
+</html>
