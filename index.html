@@ -6,11 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bitirme Projesi</title>
 
-    <!-- Favicon -->
+    <!-- Site simgesi -->
     <link rel="icon" type="image/png" href="5z2Bb4sF_400x400.png">
 
     <style>
-        /* Import Google Fonts for pixel-like appearance */
+        /* Piksel benzeri görünüm için Google Fonts'u içe aktar */
         @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&display=swap');
 
         * {
@@ -33,7 +33,7 @@
             padding: 0 20px;
         }
 
-        /* Navigation Styles */
+        /* Navigasyon stilleri */
         .navbar {
             display: flex;
             justify-content: space-between;
@@ -95,7 +95,7 @@
             left: 100%;
         }
 
-        /* Content Sections */
+        /* İçerik bölümleri */
         .content-section {
             display: none;
             animation: fadeIn 0.5s ease-in;
@@ -117,7 +117,7 @@
             }
         }
 
-        /* Hero Section */
+        /* Kahraman bölümü */
         .hero-section {
             text-align: center;
             padding: 40px 0;
@@ -163,7 +163,7 @@
             }
         }
 
-        /* Info Box */
+        /* Bilgi kutusu */
         .info-box {
             background: rgba(67, 216, 107, 0.1);
             border: 2px solid #43d86b;
@@ -184,7 +184,7 @@
             color: #d2f5e0;
         }
 
-        /* Features Grid */
+        /* Özellikler ızgarası */
         .features-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -219,7 +219,7 @@
             font-size: 0.9rem;
         }
 
-        /* Game Status */
+        /* Oyun durumu */
         .game-status {
             margin: 40px 0;
             text-align: center;
@@ -240,7 +240,7 @@
             color: #ffcc7f;
         }
 
-        /* Team Section */
+        /* Takım bölümü */
         .section-title {
             text-align: center;
             font-size: 2.5rem;
@@ -295,7 +295,7 @@
             line-height: 1.5;
         }
 
-        /* Screenshots Section */
+        /* Ekran görüntüleri bölümü */
         .screenshots-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -352,7 +352,7 @@
             font-size: 1.1rem;
         }
 
-        /* Contact Section */
+        /* İletişim bölümü */
         .contact-content {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -475,7 +475,7 @@
             filter: drop-shadow(0 0 8px #43d86b) brightness(1.1);
         }
 
-        /* Success Message */
+        /* Başarı mesajı */
         .success-message {
             position: fixed;
             top: 20px;
@@ -496,7 +496,7 @@
             transform: translateX(0);
         }
 
-        /* Responsive Design */
+        /* Duyarlı tasarım */
         @media (max-width: 768px) {
             .navbar {
                 flex-direction: column;
@@ -553,20 +553,21 @@
 
 <body>
     <div class="container">
-        <!-- Header Navigation -->
+        <!-- Üst gezinme -->
         <nav class="navbar">
             <div class="nav-brand">
                 <h1>🎮 Bitirme Projesi</h1>
             </div>
             <div class="nav-menu">
                 <button class="nav-btn active" data-section="ana-sayfa">ANA SAYFA</button>
-                <button class="nav-btn" data-section="ekip">EKİP</button>
-                <button class="nav-btn" data-section="ekran-goruntuleri">EKRAN GÖRÜNTÜLERİ</button>
-                <button class="nav-btn" data-section="iletisim">İLETİŞİM</button>
+                <button class="nav-btn" data-section="ekip">EKIP</button>
+                <button class="nav-btn" data-section="ekran-goruntuleri">GORSELLER</button>
+                <button class="nav-btn" data-section="devblog">DEV BLOG/LOG</button>
+                <button class="nav-btn" data-section="iletisim">ILETISIM</button>
             </div>
         </nav>
 
-        <!-- Main Content -->
+        <!-- Ana içerik -->
         <main class="main-content">
             <!-- Ana Sayfa -->
             <section id="ana-sayfa" class="content-section active">
@@ -590,7 +591,7 @@
                                 <p>Stratejik düşünce gerektiren savaş sistemi</p>
                             </div>
                             <div class="feature-card">
-                                <h4>🏰 İzometrik Dünya</h4>
+                                <h4>🏰 Izometrik Dünya</h4>
                                 <p>Detaylı pixel art ile tasarlanmış dünya</p>
                             </div>
                             <div class="feature-card">
@@ -599,14 +600,53 @@
                             </div>
                             <div class="feature-card">
                                 <h4>🎨 Pixel Art Stili</h4>
-                                <p>Nostaljik ve şık görsel tasarım</p>
+                                <p>Nostaljik ve sik görsel tasarim</p>
                             </div>
                         </div>
 
                         <div class="game-status">
-                            <p class="status-text">🚧 Geliştirme Aşaması: Alpha v0.1</p>
-                            <p class="release-text">📅 Planlanan Çıkış: 2026 Bahar Dönemi</p>
+                            <p class="status-text">🚧 Gelistirme Asamasi: Alpha v0.1</p>
+                            <p class="release-text">📅 Planlanan Cikis: 2026 Bahar Dönemi</p>
                         </div>
+                    </div>
+                </div>
+            </section>
+            <!-- Dev Blog/Log Sayfası -->
+            <section id="devblog" class="content-section">
+                <h2 class="section-title">📝 DEV BLOG / LOG</h2>
+                <div class="blog-list" style="margin:40px 0; display:flex; flex-direction:column; gap:30px;">
+                    <div class="blog-entry"
+                        style="background:rgba(0,0,0,0.6); border:2px solid #43d86b; border-radius:10px; padding:30px; box-shadow:0 10px 30px rgba(67,216,107,0.1); transition:all 0.3s ease;">
+                        <div class="blog-date" style="color:#a2e8b7; font-size:1rem; margin-bottom:10px;">15 Ağustos
+                            2025</div>
+                        <div class="blog-title" style="font-size:1.5rem; color:#43d86b; margin-bottom:15px;">Proje
+                            Sitesi Olusturulması</div>
+                        <div class="blog-content" style="color:#d2f5e0; line-height:1.6;">Projemiz için özel olarak
+                            tasarladığımız internet sitesi yayına alındı! Bu site sayesinde proje hakkında güncel
+                            bilgilere ulaşabilir, geliştirme sürecimizi takip edebilir ve oyunumuzla ilgili ekran
+                            görüntüleri veya tanıtım materyallerini inceleyebilirsiniz. Ayrıca ekip üyelerimiz ve
+                            projenin aşamaları hakkında da bilgi içeren site, geri bildirimlerinizi bize daha kolay
+                            iletebilmeniz için iletişim formu da barındırıyor. Süreç boyunca yeni içerikler ve duyurular
+                            için internet sitemizi düzenli olarak güncelleyeceğiz.</div>
+                    </div>
+                    <div class="blog-entry"
+                        style="background:rgba(0,0,0,0.6); border:2px solid #43d86b; border-radius:10px; padding:30px; box-shadow:0 10px 30px rgba(67,216,107,0.1); transition:all 0.3s ease;">
+                        <div class="blog-date" style="color:#a2e8b7; font-size:1rem; margin-bottom:10px;">30 Ağustos
+                            2025</div>
+                        <div class="blog-title" style="font-size:1.5rem; color:#43d86b; margin-bottom:15px;">İlk Oyun
+                            Mekanikleri</div>
+                        <div class="blog-content" style="color:#d2f5e0; line-height:1.6;">Sıra tabanlı savaş sistemi ve
+                            izometrik harita prototipi geliştirildi. Ekip, ilk görseller üzerinde çalışmaya başladı.
+                        </div>
+                    </div>
+                    <div class="blog-entry"
+                        style="background:rgba(0,0,0,0.6); border:2px solid #43d86b; border-radius:10px; padding:30px; box-shadow:0 10px 30px rgba(67,216,107,0.1); transition:all 0.3s ease;">
+                        <div class="blog-date" style="color:#a2e8b7; font-size:1rem; margin-bottom:10px;">10 Eylül 2025
+                        </div>
+                        <div class="blog-title" style="font-size:1.5rem; color:#43d86b; margin-bottom:15px;">Pixel Art
+                            ve Hikaye Gelişimi</div>
+                        <div class="blog-content" style="color:#d2f5e0; line-height:1.6;">Ana karakterler ve düşmanlar
+                            için pixel art çalışmaları tamamlandı. Hikaye akışı ve görev sistemi tasarlandı.</div>
                     </div>
                 </div>
             </section>
@@ -614,29 +654,29 @@
             <!-- Ekip Sayfası -->
             <section id="ekip" class="content-section">
                 <div class="team-section">
-                    <h2 class="section-title">👥 GELİŞTİRİCİ EKİBİ</h2>
+                    <h2 class="section-title">👥 GELISTIRICI EKIBI</h2>
                     <div class="team-grid">
                         <div class="team-member">
                             <div class="member-avatar">👨‍💻</div>
                             <h3>Ali Ege Önal</h3>
                             <p class="role">Game Developer / Game Designer</p>
-                            <p class="description">Oyun mekaniği tasarımı, ana kod geliştirme ve Pixel art tasarımı</p>
+                            <p class="description">Oyun mekaniği tasarimi, ana kod geliştirme ve Pixel art tasarimi</p>
                         </div>
                         <div class="team-member">
                             <div class="member-avatar">👨‍💻</div>
                             <h3>Alperen Yüksel</h3>
                             <p class="role">Game Developer / Game Designer</p>
-                            <p class="description">Oyun mekaniği tasarımı, ana kod geliştirme ve Pixel art tasarımı</p>
+                            <p class="description">Oyun mekaniği tasarimi, ana kod geliştirme ve Pixel art tasarimi</p>
                         </div>
                         <div class="team-member">
                             <div class="member-avatar">👨‍💻</div>
-                            <h3>Batuhan Bayraklı</h3>
+                            <h3>Batuhan Bayrakli</h3>
                             <p class="role">Game Developer / Game Designeraa</p>
-                            <p class="description">Oyun mekaniği tasarımı, ana kod geliştirme ve Pixel art tasarımı</p>
+                            <p class="description">Oyun mekaniği tasarimi, ana kod geliştirme ve Pixel art tasarimi</p>
                         </div>
                         <div class="team-member">
                             <div class="member-avatar">👨‍💻</div>
-                            <h3>Geliştirici 4</h3>
+                            <h3>Gelistirici 4</h3>
                             <p class="role">System Architect / QA</p>
                             <p class="description">Sistem mimarisi ve kalite kontrol</p>
                         </div>
@@ -647,38 +687,42 @@
             <!-- Ekran Görüntüleri Sayfası -->
             <section id="ekran-goruntuleri" class="content-section">
                 <div class="screenshots-section">
-                    <h2 class="section-title">📸 EKRAN GÖRÜNTÜLERİ</h2>
+                    <h2 class="section-title">📸 EKRAN GORUNTULERI</h2>
                     <div class="screenshots-grid">
                         <div class="screenshot-placeholder">
                             <div class="pixel-frame">
-                                <p>🏰 Ana Menü</p>
-                                <img src="Week_32_T.png" alt="Ana Menü"
+                                <img src="Week_32_T.png"
                                     style="width:100%; border-radius:8px; box-shadow:0 0 16px #43d86b;">
-                                <div class="preview-text">Oyunun ana menü ekranı</div>
                             </div>
                         </div>
                         <div class="screenshot-placeholder">
                             <div class="pixel-frame">
-                                <p>⚔️ Savaş Ekranı</p>
-                                <img src="new-menu-art-for-my-game-v0-j7zice1b2b0c1.webp" alt="Ana Menü"
+                                <img src="new-menu-art-for-my-game-v0-j7zice1b2b0c1.webp"
                                     style="width:100%; border-radius:8px; box-shadow:0 0 16px #43d86b;">
-                                <div class="preview-text">Sıra tabanlı savaş sistemi</div>
                             </div>
                         </div>
                         <div class="screenshot-placeholder">
                             <div class="pixel-frame">
-                                <p>🗺️ Dünya Haritası</p>
-                                <img src="pokemon-battle-pidgey-and-charmander.avif" alt="Ana Menü"
+                                <img src="pokemon-battle-pidgey-and-charmander.avif"
                                     style="width:100%; border-radius:8px; box-shadow:0 0 16px #43d86b;">
-                                <div class="preview-text">İzometrik dünya görünümü</div>
                             </div>
                         </div>
                         <div class="screenshot-placeholder">
                             <div class="pixel-frame">
-                                <p>👤 Karakter Menüsü</p>
-                                <img src="C7ETqq.png" alt="Ana Menü"
+                                <img src="C7ETqq.png"
                                     style="width:100%; border-radius:8px; box-shadow:0 0 16px #43d86b;">
-                                <div class="preview-text">Karakter gelişimi ve envanter</div>
+                            </div>
+                        </div>
+                        <div class="screenshot-placeholder">
+                            <div class="pixel-frame">
+                                <img src="il_fullxfull.5021761641_r78a.webp"
+                                    style="width:100%; border-radius:8px; box-shadow:0 0 16px #43d86b;">
+                            </div>
+                        </div>
+                        <div class="screenshot-placeholder">
+                            <div class="pixel-frame">
+                                <img src="588aac43dc45f3b9faab8015b8eb6d44.jpg"
+                                    style="width:100%; border-radius:8px; box-shadow:0 0 16px #43d86b;">
                             </div>
                         </div>
                     </div>
@@ -689,7 +733,7 @@
             <!-- İletişim Sayfası -->
             <section id="iletisim" class="content-section">
                 <div class="contact-section">
-                    <h2 class="section-title">📧 İLETİŞİM</h2>
+                    <h2 class="section-title">📧 ILETISIM</h2>
                     <div class="contact-content">
                         <div class="contact-info">
                             <div class="contact-card">
@@ -706,6 +750,7 @@
                                 <p><strong>💬 Discord:</strong> oyun#1234</p>
                                 <p><strong>🐙 GitHub:</strong> github.com/oyun</p>
                                 <p><strong>📱 Twitter:</strong> @oyun</p>
+                                <p><strong>🌐 Steam Sayfası:</strong> www.stem/alperen.com</p>
                             </div>
                         </div>
 
@@ -714,6 +759,7 @@
                             <form class="contact-form" id="contactForm">
                                 <input type="text" placeholder="Adınız" id="name" required>
                                 <input type="email" placeholder="E-posta Adresiniz" id="email" required>
+                                <input type="text" placeholder="Başlık" id="title" required>
                                 <textarea placeholder="Mesajınız..." rows="5" id="message" required></textarea>
                                 <button type="submit" class="submit-btn">📤 GÖNDER</button>
                             </form>
@@ -723,39 +769,94 @@
             </section>
         </main>
 
-        <!-- Footer -->
+        <!-- Alt bilgi -->
         <footer class="footer">
-            <div class="logo-frame">
-                <img src="baskent-universitesi-logo.png" alt="Başkent Üniversitesi Logo" class="school-logo">
+            <div class="footer-content"
+                style="width:100%; display:flex; flex-direction:column; align-items:center; position:relative;">
+                <div id="progress-bar-container" style="width:100%; max-width:600px; margin:0 auto 16px auto;">
+                    <div
+                        style="text-align:center; font-size:2rem; font-family:'Orbitron', monospace; color:#43d86b; font-weight:900; margin-bottom:8px; text-shadow:0 0 10px #43d86b;">
+                        OYUN CIKISINA KALAN: Haziran 2026</div>
+                    <div id="progress-bar-label"
+                        style="text-align:center; font-size:1.3rem; font-family:'Orbitron', monospace; color:#43d86b; font-weight:700; margin-bottom:6px; text-shadow:0 0 8px #43d86b;">
+                    </div>
+                    <div
+                        style="width:100%; background:rgba(15,15,35,0.85); border-radius:12px; border:2px solid #43d86b; height:38px; position:relative; overflow:hidden; box-shadow:0 0 16px #43d86b;">
+                        <div id="progress-bar"
+                            style="height:100%; background:linear-gradient(90deg,#43d86b 0%,#a2e8b7 100%); width:0%; transition:width 0.5s; border-radius:12px;">
+                        </div>
+                    </div>
+                    <div style="width:100%; height:0; border-bottom:2px solid #43d86b; margin:18px 0 0 0;"></div>
+                </div>
+                <div style="width:100%; display:flex; flex-direction:column; align-items:center;">
+                    <div class="logo-frame" style="margin-bottom:0; max-width:600px; width:100%;">
+                        <img src="baskent-universitesi-logo.png" alt="Başkent Üniversitesi Logo" class="school-logo">
+                    </div>
+                    <div style="width:100%; height:0; border-bottom:2px solid #43d86b; margin:18px 0 0 0;"></div>
+                </div>
             </div>
-            <p>&copy; 2025 Başkent Üniversitesi Development Team | Bilgisayar Mühendisliği Bitirme Projesi</p>
+            <!-- EmailJS SDK (E-posta gönderimi için) -->
+            <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+            <script>
+                (function () {
+                    emailjs.init('KeooaRGyCOhLWhCAd'); // Kendi EmailJS kullanıcı ID'nizi buraya girin
+                })();
+            </script>
+            <p
+                style="text-align:center; width:100%; font-family:'Orbitron', monospace; color:#43d86b; font-size:1.1rem; margin:24px auto 0 auto;">
+                &copy; 2025 Başkent Üniversitesi Development Team | Bilgisayar Mühendisliği Bitirme Projesi</p>
         </footer>
     </div>
 
-    <!-- Success Message -->
+    <!-- Başarı Mesajı -->
     <div class="success-message" id="successMessage">
         ✅ Mesajınız başarıyla gönderildi!
     </div>
 
     <script>
         document.addEventListener('DOMContentLoaded', function () {
-            // Navigation functionality
-            const navButtons = document.querySelectorAll('.nav-btn');
-            const contentSections = document.querySelectorAll('.content-section');
+            // --- GERÇEK ZAMANLI PROGRESS BAR SAYACI ---
+            const bar = document.getElementById('progress-bar');
+            const label = document.getElementById('progress-bar-label');
+            const targetDate = new Date('2026-06-01T00:00:00');
+            function updateProgressBar() {
+                const now = new Date();
+                const startDate = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 0, 0, 0, 0);
+                const total = targetDate - startDate;
+                let elapsed = now - startDate;
+                elapsed = Math.max(0, Math.min(elapsed, total));
+                const percent = Math.max(0, Math.min(100, Math.floor((elapsed / total) * 100)));
+                bar.style.width = percent + '%';
+                const diff = Math.max(0, targetDate - now);
+                const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+                const minutes = Math.floor((diff / (1000 * 60)) % 60);
+                const seconds = Math.floor((diff / 1000) % 60);
+                label.textContent = `${percent}% | ${days} gün ${hours} saat ${minutes} dk ${seconds} sn kaldı`;
+            }
+            setInterval(updateProgressBar, 1000);
+            updateProgressBar();
 
-            navButtons.forEach(button => {
-                button.addEventListener('click', function () {
+            // Navigasyon işlevselliği
+            document.querySelectorAll('.nav-btn').forEach(button => {
+                button.addEventListener('click', function (e) {
+                    if (this.id === 'devblog-btn') {
+                        e.preventDefault();
+                        document.querySelectorAll('.nav-btn').forEach(btn => btn.classList.remove('active'));
+                        document.querySelectorAll('.content-section').forEach(section => section.classList.remove('active'));
+                        this.classList.add('active');
+                        document.getElementById('devblog').classList.add('active');
+                        this.style.transform = 'scale(0.95)';
+                        setTimeout(() => {
+                            this.style.transform = 'translateY(-2px)';
+                        }, 100);
+                        return;
+                    }
                     const targetSection = this.getAttribute('data-section');
-
-                    // Remove active class from all buttons and sections
-                    navButtons.forEach(btn => btn.classList.remove('active'));
-                    contentSections.forEach(section => section.classList.remove('active'));
-
-                    // Add active class to clicked button and target section
+                    document.querySelectorAll('.nav-btn').forEach(btn => btn.classList.remove('active'));
+                    document.querySelectorAll('.content-section').forEach(section => section.classList.remove('active'));
                     this.classList.add('active');
                     document.getElementById(targetSection).classList.add('active');
-
-                    // Add click effect
                     this.style.transform = 'scale(0.95)';
                     setTimeout(() => {
                         this.style.transform = 'translateY(-2px)';
@@ -763,87 +864,72 @@
                 });
             });
 
-            // Contact form functionality
+            // İletişim formu işlevselliği
             const contactForm = document.getElementById('contactForm');
             const successMessage = document.getElementById('successMessage');
-
             contactForm.addEventListener('submit', function (e) {
                 e.preventDefault();
-
-                // Get form values
-                const name = document.getElementById('name').value;
-                const email = document.getElementById('email').value;
-                const message = document.getElementById('message').value;
-
-                // Simple validation
-                if (name.trim() === '' || email.trim() === '' || message.trim() === '') {
+                const name = contactForm.name.value.trim();
+                const email = contactForm.email.value.trim();
+                const title = contactForm.title.value.trim();
+                const message = contactForm.message.value.trim();
+                if (!name || !email || !title || !message) {
                     alert('❌ Lütfen tüm alanları doldurun!');
                     return;
                 }
-
-                // Email validation
                 const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
                 if (!emailRegex.test(email)) {
                     alert('❌ Geçerli bir e-posta adresi girin!');
                     return;
                 }
-
-                // Show loading effect on button
                 const submitBtn = contactForm.querySelector('.submit-btn');
                 const originalText = submitBtn.textContent;
                 submitBtn.textContent = '⏳ GÖNDERİLİYOR...';
                 submitBtn.disabled = true;
-
-                // Simulate sending (replace with actual form submission)
-                setTimeout(() => {
-                    // Reset form
-                    contactForm.reset();
-
-                    // Show success message
-                    successMessage.classList.add('show');
-
-                    // Reset button
+                emailjs.send('service_802kh5i', 'template_ttmpbz7', {
+                    from_name: name,
+                    from_email: email,
+                    title: title,
+                    message: message
+                }).then(function () {
+                    emailjs.send('service_802kh5i', 'template_58pxwxr', {
+                        to_email: email,
+                        from_name: name,
+                        title: title
+                    }).then(function () {
+                        contactForm.reset();
+                        successMessage.classList.add('show');
+                        submitBtn.textContent = originalText;
+                        submitBtn.disabled = false;
+                        setTimeout(() => successMessage.classList.remove('show'), 3000);
+                    }, function () {
+                        alert('❌ Otomatik yanıt gönderilemedi.');
+                        submitBtn.textContent = originalText;
+                        submitBtn.disabled = false;
+                    });
+                }, function () {
+                    alert('❌ Mesaj gönderilemedi. Lütfen tekrar deneyin!');
                     submitBtn.textContent = originalText;
                     submitBtn.disabled = false;
-
-                    // Hide success message after 3 seconds
-                    setTimeout(() => {
-                        successMessage.classList.remove('show');
-                    }, 3000);
-                }, 1500);
-            });
-
-            // Add hover effects to feature cards
-            const featureCards = document.querySelectorAll('.feature-card');
-            featureCards.forEach(card => {
-                card.addEventListener('mouseenter', function () {
-                    this.style.transform = 'translateY(-5px) scale(1.02)';
-                });
-
-                card.addEventListener('mouseleave', function () {
-                    this.style.transform = 'translateY(0) scale(1)';
                 });
             });
 
-            // Add click effects to team members
-            const teamMembers = document.querySelectorAll('.team-member');
-            teamMembers.forEach(member => {
+            // Hover ve click efektleri
+            document.querySelectorAll('.feature-card').forEach(card => {
+                card.addEventListener('mouseenter', () => card.style.transform = 'translateY(-5px) scale(1.02)');
+                card.addEventListener('mouseleave', () => card.style.transform = 'translateY(0) scale(1)');
+            });
+            document.querySelectorAll('.team-member').forEach(member => {
                 member.addEventListener('click', function () {
                     this.style.transform = 'scale(0.98)';
-                    setTimeout(() => {
-                        this.style.transform = 'translateY(-5px) scale(1)';
-                    }, 100);
+                    setTimeout(() => this.style.transform = 'translateY(-5px) scale(1)', 100);
                 });
             });
-
-            // Add pixel effect to screenshots
-            const pixelFrames = document.querySelectorAll('.pixel-frame');
-            pixelFrames.forEach(frame => {
+            document.querySelectorAll('.pixel-frame').forEach(frame => {
                 frame.addEventListener('click', function () {
                     const placeholder = this.closest('.screenshot-placeholder');
                     placeholder.style.border = '3px solid #7fff7f';
                     placeholder.style.boxShadow = '0 0 20px rgba(127, 255, 127, 0.5)';
-
                     setTimeout(() => {
                         placeholder.style.border = '2px solid #43d86b';
                         placeholder.style.boxShadow = 'none';
@@ -851,71 +937,46 @@
                 });
             });
 
-            // Typing effect for the main title
+            // Ana başlık için yazma efekti
             const pixelText = document.querySelector('.pixel-text');
             if (pixelText) {
                 const originalText = pixelText.textContent;
                 pixelText.textContent = '';
-
                 let i = 0;
-                const typeWriter = () => {
+                function typeWriter() {
                     if (i < originalText.length) {
                         pixelText.textContent += originalText.charAt(i);
                         i++;
                         setTimeout(typeWriter, 100);
                     }
-                };
-
-                // Start typing effect after a short delay
+                }
                 setTimeout(typeWriter, 500);
             }
 
-            // Add floating animation to some elements
-            const floatingElements = document.querySelectorAll('.nav-brand h1, .pixel-text');
-            floatingElements.forEach(element => {
+            // Yüzme animasyonu
+            document.querySelectorAll('.nav-brand h1, .pixel-text').forEach(element => {
                 element.style.animation = 'float 3s ease-in-out infinite';
             });
-
-            // Add CSS for floating animation
             const style = document.createElement('style');
-            style.textContent = `
-                @keyframes float {
-                    0%, 100% { transform: translateY(0px); }
-                    50% { transform: translateY(-10px); }
-                }
-            `;
+            style.textContent = `@keyframes float {0%,100%{transform:translateY(0px);}50%{transform:translateY(-10px);}}`;
             document.head.appendChild(style);
 
-            // Easter egg: Konami code
+            // Easter Egg
             let konamiCode = [];
-            const konamiSequence = [
-                'ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown',
-                'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight',
-                'KeyB', 'KeyA'
-            ];
-
+            const konamiSequence = ['KeyM', 'KeyU', 'KeyR', 'KeyA', 'KeyT', 'KeyH', 'KeyO', 'KeyC', 'KeyA'];
             document.addEventListener('keydown', function (e) {
                 konamiCode.push(e.code);
-
-                if (konamiCode.length > konamiSequence.length) {
-                    konamiCode.shift();
-                }
-
+                if (konamiCode.length > konamiSequence.length) konamiCode.shift();
                 if (konamiCode.join(',') === konamiSequence.join(',')) {
-                    // Easter egg activated!
                     document.body.style.filter = 'hue-rotate(180deg)';
                     alert('🎮 Easter Egg Bulundu! Retro mode aktifleştirildi!');
-
-                    setTimeout(() => {
-                        document.body.style.filter = 'none';
-                    }, 5000);
-
+                    setTimeout(() => document.body.style.filter = 'none', 5000);
                     konamiCode = [];
                 }
             });
         });
 
-        // Add matrix rain effect (optional)
+        // Matrix yağmuru efekti ekle 
         function createMatrixRain() {
             const canvas = document.createElement('canvas');
             const ctx = canvas.getContext('2d');
@@ -963,7 +1024,7 @@
 
             setInterval(draw, 50);
         }
-        // Initialize matrix rain effect
+        // Matrix yağmuru efektini başlat
         createMatrixRain();
     </script>
 </body>
